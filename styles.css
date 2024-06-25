@@ -2,16 +2,16 @@
     box-sizing: border-box;
   }
 
-  .res {
+  .winner {
     color: green;
     font-weight: bold;
     font-size: 40px;
     font-family: Arial;
     height: 50px;
   }
-  .game {
-    width: 360px;
-    height: 300px;
+  .container {
+    width: 305px;
+    height: 305px;
     display: flex;
     flex-wrap: wrap;
   }
@@ -28,3 +28,8 @@
 .active {
     background: rgba(0, 255, 0, 0.5);
   }
+.cells{
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+}
