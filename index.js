@@ -25,3 +25,27 @@ let startButton =  document.querySelector(".new-game"),
         })();
          playGame.player(); 
 
+
+function winner(){
+    const comb = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6], 
+            [1, 4, 7], 
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+            ];
+            for (let i = 0; i < comb.length; i++) {
+                const cells = document.querySelectorAll(".cell");
+                if (cells[comb[i][0]].innerText === "X" &&
+                    cells[comb[i][1]].innerText === "X" &&
+                    cells[comb[i][2]].innerText === "X") {
+                    alert('Winner is X');
+                }else  if (cells[comb[i][0]].innerText === "0" &&
+                    cells[comb[i][1]].innerText === "0" &&
+                    cells[comb[i][2]].innerText === "0") {
+                    alert('Winner is 0');
+            }
+            }}
