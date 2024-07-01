@@ -1,5 +1,6 @@
 let startButton =  document.querySelector(".new-game"),
 container = document.querySelector(".container"),
+winnerResult = document.querySelector(".winner"),
 currentPlayer = "X";
 
     startButton.addEventListener("click", createGameBoard);
@@ -41,10 +42,16 @@ function winner(){
                 if (cells[comb[i][0]].innerText === "X" &&
                     cells[comb[i][1]].innerText === "X" &&
                     cells[comb[i][2]].innerText === "X") {
-                    alert('Winner is X');
+                        cells[comb[i][0]].classList.add('active');
+                        cells[comb[i][1]].classList.add('active');
+                        cells[comb[i][2]].classList.add('active');  
+                        winnerResult.innerText = 'Winner is X';
                 }else  if (cells[comb[i][0]].innerText === "0" &&
                     cells[comb[i][1]].innerText === "0" &&
                     cells[comb[i][2]].innerText === "0") {
-                    alert('Winner is 0');
+                        cells[comb[i][0]].classList.add('active');
+                        cells[comb[i][1]].classList.add('active');
+                        cells[comb[i][2]].classList.add('active');  
+                        winnerResult.innerText = 'Winner is 0';
             }
             }}
