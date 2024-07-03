@@ -55,3 +55,10 @@ function winner(){
                         winnerResult.innerText = 'Winner is 0';
             }
             }}
+
+document.querySelector(".restart").addEventListener("click", function(){
+const cells = document.querySelectorAll(".cell");
+cells.forEach(cell=>{
+    cell.innerText="";
+})
+})
