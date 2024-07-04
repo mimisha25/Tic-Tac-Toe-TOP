@@ -17,8 +17,10 @@ currentPlayer = "X";
     const playGame = (function (){
         const player =()=>{ container.addEventListener("click", function(e){
             let targetCell = e.target;
-            currentPlayer = currentPlayer === "X" ? "0" : "X";
-            targetCell.innerText=currentPlayer;  
+            if(targetCell.innerText === ""){
+                currentPlayer = currentPlayer === "X" ? "0" : "X";
+                targetCell.innerText=currentPlayer;  
+            }
             winner();   
         })};
         return {player};
