@@ -1,22 +1,6 @@
-let startButton =  document.querySelector(".new-game"),
-container = document.querySelector(".container"),
+let container = document.querySelector(".container"),
 winnerResult = document.querySelector(".winner"),
 currentPlayer = "X";
-
-    startButton.addEventListener("click", createGameBoard);
-
-
-    function createGameBoard(){
-
-        for (let i=0; i<9; i++){
-            const cells = document.createElement("div");
-            cells.classList.add("cell");
-            container.appendChild(cells);
-        }
-        if (container.childElementCount !== 0) {
-            restart();
-        }
-    }
 
     const playGame = (function (){
         const player =()=>{ container.addEventListener("click", function(e){
