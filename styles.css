@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     text-align: center;
+    background-color: #f7e293;
   }
 
   .winner {
@@ -11,15 +12,13 @@
     height: 50px;
   }
   .container {
-    border: 1px solid black;
-    width:302px;
-    height: 302px;
+    width:300px;
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
     margin: 0 auto;
   }
-.new-game,
+.home,
  .restart{
     border: none;
     color: #fff;
