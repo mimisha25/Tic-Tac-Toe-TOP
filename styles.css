@@ -32,7 +32,7 @@
     background: rgba(0, 255, 0, 0.5);
   }
 .cell{
-  border: 1px solid black;
+  border: 1px solid green;
   width: 100px;
   height: 100px;
   text-align: center;
@@ -45,3 +45,6 @@
 .cross{
   color: red;
 }
+
+
+
