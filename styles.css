@@ -16,10 +16,11 @@
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
-    margin: 0 auto;
+    margin: 70px auto;
   }
 .home,
- .restart{
+ .restart,
+ dialog button{
     border: none;
     color: #fff;
     background: green;
@@ -31,13 +32,12 @@
 .active {
     background: rgba(0, 255, 0, 0.5);
   }
-.cell{
+.cell{  
   border: 1px solid green;
   width: 100px;
   height: 100px;
   text-align: center;
   font-size: 5.5rem;
-  
 }
 .circle{
   color: blue;
@@ -45,6 +45,11 @@
 .cross{
   color: red;
 }
-
-
-
+dialog{
+  color: green;
+  width: 300px;
+  font-size: 1.4rem;
+}
+dialog::backdrop {
+  background: rgba(97, 94, 94, 0.7);
+}
