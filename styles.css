@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    text-align: center;
   }
 
   .winner {
@@ -16,6 +17,7 @@
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
+    margin: 0 auto;
   }
 .new-game,
  .restart{
