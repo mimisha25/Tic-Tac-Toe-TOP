@@ -59,3 +59,11 @@ cells.forEach(cell=>{
 })
 }
 
+function winnerDialog(){
+    dialog.showModal();
+    document.querySelector(".dialog").addEventListener("click", (e)=>{
+    e.preventDefault();
+    dialog.close();
+    restart();
+    })
+    }
