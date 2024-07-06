@@ -1,6 +1,8 @@
 let container = document.querySelector(".container"),
-winnerResult = document.querySelector(".winner"),
-currentPlayer = "X";
+    dialog = document.querySelector("dialog"),
+    winnerText = document.querySelector(".dialog-text"),
+    currentPlayer = "X"
+
 
     const playGame = (function (){
         const player =()=>{ container.addEventListener("click", function(e){
@@ -9,8 +11,8 @@ currentPlayer = "X";
                 currentPlayer = currentPlayer === "X" ? "O" : "X";
                 currentPlayer === "X"?targetCell.classList.add("cross"):targetCell.classList.add("circle");
                 targetCell.innerText=currentPlayer;
-            }
-            winner();   
+                winner(); 
+            }  
         })};
         return {player};
         })();
@@ -30,20 +32,24 @@ function winner(){
             ];
             for (let i = 0; i < comb.length; i++) {
                 const cells = document.querySelectorAll(".cell");
-                if (cells[comb[i][0]].innerText === "X" &&
-                    cells[comb[i][1]].innerText === "X" &&
-                    cells[comb[i][2]].innerText === "X") {
-                        cells[comb[i][0]].classList.add('active');
-                        cells[comb[i][1]].classList.add('active');
-                        cells[comb[i][2]].classList.add('active');  
-                        winnerResult.innerText = 'Winner is X';
-                }else  if (cells[comb[i][0]].innerText === "O" &&
-                    cells[comb[i][1]].innerText === "O" &&
-                    cells[comb[i][2]].innerText === "O") {
-                        cells[comb[i][0]].classList.add('active');
-                        cells[comb[i][1]].classList.add('active');
-                        cells[comb[i][2]].classList.add('active');  
-                        winnerResult.innerText = 'Winner is O';
+                let a=cells[comb[i][0]];
+                let b=cells[comb[i][1]];
+                let c=cells[comb[i][2]];
+                if (a.innerHTML === "X" && b.innerHTML === "X" && c.innerHTML === "X") {
+                        a.classList.add('active');
+                        b.classList.add('active');
+                        c.classList.add('active');  
+                        winnerDialog();
+                        winnerText.innerText = "Winner is X!"
+                }else  if (a.innerHTML === "O" && b.innerHTML === "O" && c.innerHTML === "O") {
+                    a.classList.add('active');
+                    b.classList.add('active');
+                    c.classList.add('active');   
+                        winnerDialog();
+                        winnerText.innerText = "Winner is O!"
+            }else if(draw()){
+                winnerDialog();
+                winnerText.innerText = "It's a Draw!" 
             }
             }}
 
@@ -53,6 +59,25 @@ function restart(){
 cells.forEach(cell=>{
     cell.innerText="";
     cell.classList.remove('active'); 
-    winnerResult.innerText="Let's Play!";
 })
+}
+
+function winnerDialog(){
+dialog.showModal();
+document.querySelector(".dialog").addEventListener("click", (e)=>{
+e.preventDefault();
+dialog.close();
+restart();
+})
+}
+const cells = Array.from(document.querySelectorAll(".cell"));
+
+function draw(){
+    const cells = Array.from(document.querySelectorAll(".cell"));
+    for(let i = 0; i < cells.length; i++) {
+        if(cells[i].textContent === '') {
+            return false;
+        }
+    }
+    return true
 }
