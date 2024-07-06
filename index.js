@@ -7,10 +7,14 @@ currentPlayer = "X";
 
 
     function createGameBoard(){
+
         for (let i=0; i<9; i++){
             const cells = document.createElement("div");
             cells.classList.add("cell");
             container.appendChild(cells);
+        }
+        if (container.childElementCount !== 0) {
+            restart();
         }
     }
 
@@ -18,8 +22,9 @@ currentPlayer = "X";
         const player =()=>{ container.addEventListener("click", function(e){
             let targetCell = e.target;
             if(targetCell.innerText === ""){
-                currentPlayer = currentPlayer === "X" ? "0" : "X";
-                targetCell.innerText=currentPlayer;  
+                currentPlayer = currentPlayer === "X" ? "O" : "X";
+                currentPlayer === "X"?targetCell.classList.add("cross"):targetCell.classList.add("circle");
+                targetCell.innerText=currentPlayer;
             }
             winner();   
         })};
@@ -48,21 +53,22 @@ function winner(){
                         cells[comb[i][1]].classList.add('active');
                         cells[comb[i][2]].classList.add('active');  
                         winnerResult.innerText = 'Winner is X';
-                }else  if (cells[comb[i][0]].innerText === "0" &&
-                    cells[comb[i][1]].innerText === "0" &&
-                    cells[comb[i][2]].innerText === "0") {
+                }else  if (cells[comb[i][0]].innerText === "O" &&
+                    cells[comb[i][1]].innerText === "O" &&
+                    cells[comb[i][2]].innerText === "O") {
                         cells[comb[i][0]].classList.add('active');
                         cells[comb[i][1]].classList.add('active');
                         cells[comb[i][2]].classList.add('active');  
-                        winnerResult.innerText = 'Winner is 0';
+                        winnerResult.innerText = 'Winner is O';
             }
             }}
 
-document.querySelector(".restart").addEventListener("click", function(){
-const cells = document.querySelectorAll(".cell");
+document.querySelector(".restart").addEventListener("click", restart);
+function restart(){
+    const cells = document.querySelectorAll(".cell");
 cells.forEach(cell=>{
     cell.innerText="";
     cell.classList.remove('active'); 
     winnerResult.innerText="Let's Play!";
 })
-})
+}
