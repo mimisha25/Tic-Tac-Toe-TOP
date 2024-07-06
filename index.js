@@ -47,6 +47,9 @@ function winner(){
                     c.classList.add('active');   
                         winnerDialog();
                         winnerText.innerText = "Winner is O!"
+            }else if(draw()){
+                winnerDialog();
+                winnerText.innerText = "It's a Draw!" 
             }
             }}
 
@@ -67,3 +70,14 @@ function winnerDialog(){
     restart();
     })
     }
+
+    function draw(){
+        const cells = Array.from(document.querySelectorAll(".cell"));
+        for(let i = 0; i < cells.length; i++) {
+            if(cells[i].textContent === '') {
+                return false;
+            }
+        }
+        return true
+    }
+    
