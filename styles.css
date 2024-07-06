@@ -53,3 +53,30 @@ dialog{
 dialog::backdrop {
   background: rgba(97, 94, 94, 0.7);
 }
+
+.cell:nth-child(1), 
+.cell:nth-child(3)
+{
+  border-bottom: 5px solid green;
+}
+.cell:nth-child(7), 
+.cell:nth-child(9)
+{
+  border-top: 5px solid green;
+}
+.cell:nth-child(2){
+  border-right: 5px solid green;
+  border-left: 5px solid green;
+  border-bottom: 5px solid green;
+}
+.cell:nth-child(8)
+{
+  border-right: 5px solid green;
+  border-left: 5px solid green;
+  border-top: 5px solid green;
+}
+.cell:nth-child(5)
+{
+  border-right: 5px solid green;
+  border-left: 5px solid green;
+}
